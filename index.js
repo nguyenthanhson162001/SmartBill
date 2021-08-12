@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./router')
 const morgan = require('morgan')
-const post = process.env.port || 3001
+const port = process.env.port || 3001
 
 
 // connect DB
@@ -18,4 +18,4 @@ app.use(morgan('tiny'))
 
 router(app)
 
-app.listen(post, () => console.log(`Server started with http://localhost:${post}`))
+app.listen(port, () => console.log(`Server started with http://localhost:${port}`))
