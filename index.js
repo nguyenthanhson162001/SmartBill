@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./router')
 const morgan = require('morgan')
-const post = 3001
+const post = process.env.port || 3001
 
 
 // connect DB
