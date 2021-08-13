@@ -4,7 +4,12 @@ const verifyMiddleware = require('..//app/middlewarse/verifyToken')
 function router(app) {
     app.use('/api/account', account)
     app.use('/api/me', verifyMiddleware, me)
-    app.get('/', (req, res) => res.status(200).send(`Well come you  visit to my server !!! This is server login API, ;;; login: /api/account/login - method: POST - {email,password}
+    app.get('/', function (req, res, next) {
+        res.header('Content-Type:application/json')
+        res.header('Access-Control-Allow-Origin:*')
+        console.log('vao day home')
+        next()
+    }, (req, res) => res.status(200).send(`Well come you  visit to my server !!! This is server login API, ;;; login: /api/account/login - method: POST - {email,password}
     ;;; register: /api/account/register - method: POST - {email,password,lastName,firstName}
     ;;; infomation: /api/me/infomation -  method: GET - auth-token: --- `))
 }
