@@ -38,7 +38,7 @@ class AccountController {
         res.header('auth-token', token)
             .status(200).json({
                 status: true,
-                token_id: token
+                auth_token: token
             })
     }
     // [POST] api/account/register
@@ -76,9 +76,10 @@ class AccountController {
         })
         try {
             const saveUser = await user.save();
+            const token = jwt.sign({ _id: saveUser._id }, process.env.JWT_SECRET)
             res.status(200).json({
                 status: true,
-                // user: saveUser
+                auth_token: token
             })
         } catch (error) {
             res.status(500).json({
