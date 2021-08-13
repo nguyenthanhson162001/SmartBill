@@ -18,12 +18,7 @@ app.use(express.urlencoded({
 }))
 
 app.use(morgan('tiny'))
-app.use(function (req, res, next) {
-    res.header('Content-Type:application/json')
-    res.header('Access-Control-Allow-Origin:*')
-    console.log('vao day')
-    next()
-})
+
 router(app)
 
 app.listen(port, () => console.log(`Server started with http://localhost:${port}`))

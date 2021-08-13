@@ -38,24 +38,26 @@
             <small id="helpId" class="text-muted">Help text</small>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <script>
-        // axios.post('http://loginapi-env.eba-r3aguhvf.us-east-2.elasticbeanstalk.com/api/account/register', {
-        //     "firstName": "nguyen",
-        //     "lastName": "Son",
-        //     "email": "nguyenthanhson162003@gmail.com",
-        //     "password": "123456"
-        // })
-        //     .then(function (response) {
-        //         console.log(response);
-        //     })
-        fetch('http://loginapi-env.eba-r3aguhvf.us-east-2.elasticbeanstalk.com', {
-            mode: 'cors',
-            credentials: 'include'
-        })
+        fetch('http://smartbill-env.eba-bimkwri6.us-east-2.elasticbeanstalk.com/api/account/register',
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstName: "Nguyen Son",
+                    lastName: "Nguyen",
+                    email: "nguyenthanhson162001@gmail.com",
+                    password: "123456",
+                }),
+            })
             .then(function (response) {
-                console.log(response);
+                return response.json();
+            })
+            .then(function (response) {
+                console.table(response)
             });
     </script>
     <!-- Optional JavaScript -->
