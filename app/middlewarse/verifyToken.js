@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 module.exports =
     function (req, res, next) {
-        const token = req.header('auth_token')
-        console.log(token)
+        const token = req.headers["auth_token"]
+        console.table(token)
         if (!token)
             return res.status(401).send('Login require')
         try {
