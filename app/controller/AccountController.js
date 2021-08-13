@@ -43,6 +43,8 @@ class AccountController {
     }
     // [POST] api/account/register
     async register(req, res, next) {
+        res.header('Content-Type:application/json')
+        res.header('Access-Control-Allow-Origin:*')
         const { email, password, firstName, lastName } = req.body
         const { error } = userValidation.registerValidation({ email, password, firstName, lastName })
         if (error) {
