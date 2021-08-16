@@ -8,4 +8,6 @@ const softMiddleware = require('../app/middlewarse/softMiddlewarse')
 router.post('/store', upload.single('image'), verifyMiddleware, billController.store)
 router.get('/bills', softMiddleware, billController.bills)
 router.get('/getimage/:key', billController.getImage)
+
+router.get('/', (req, res) => res.render('this is page bill'))
 module.exports = router
