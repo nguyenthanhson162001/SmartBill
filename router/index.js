@@ -10,4 +10,5 @@ function router(app) {
     ;;; register: /api/account/register - method: POST - {email,password,lastName,firstName}
     ;;; infomation: /api/me/infomation -  method: GET - auth-token: --- `))
 }
+
 module.exports = router;
