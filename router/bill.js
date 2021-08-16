@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const billController = require('../app/controller/billController')
+const billController = require('../app/controller/BillController')
 const multer = require('multer')
 const upload = multer({ dest: 'public/image/post' })
 const verifyMiddleware = require('..//app/middlewarse/verifyToken')
