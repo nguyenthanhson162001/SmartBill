@@ -27,7 +27,7 @@
 <body>
 
     <div class="container p-4 mt-4">
-        <form class="p-4">
+        <form class="p-4" action="http://localhost:3001/api/post/store" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name_post">Name</label>
                 <input type="text" name="name_post" id="name_post" class="form-control" placeholder=""
@@ -42,10 +42,11 @@
             <button class="btn btn-primary w-100" type="submit">Submit</button>
         </form>
     </div>
+    <img src="http://localhost:3001/api/post/getimage/7a72b6a5a9f966421be56b4ea795a906" alt="">
     <script>
         $(document).ready(function () {
             $(`button[type='submit']`).on('click', function (e) {
-                e.preventDefault();
+                // e.preventDefault();
                 var name = $(`input[name='name_post']`).val()
                 var image = $(`input[name='image']`).val()
                 console.table({ name, image })
